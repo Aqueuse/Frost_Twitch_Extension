@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Stream</title>
+    <style>
+        html {
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+<script type="module">
+    'use strict'
+    import { Frost_Twitch_Extension } from './Frost_Twitch_Extension.js'
+
+    const frost = new Frost_Twitch_Extension('139960179') // channel ID (twitch.tv/pyompy there)
+
+    frost.addEventListener('down', (event) => {
+        console.log('click down')
+        console.log('Twitch user ID: ' + event.id) // ID can be anonymous see https://dev.twitch.tv/docs/extensions#identity
+        console.log('x: ' + event.x) // x is from 0 to 1
+        console.log('y: ' + event.y) // y is from 0 to 1
+    })
+
+    frost.addEventListener('move', (event) => {
+        console.log('move')
+        console.log('Twitch user ID: ' + event.id) // ID can be anonymous see https://dev.twitch.tv/docs/extensions#identity
+        console.log('x: ' + event.x) // x is from 0 to 1
+        console.log('y: ' + event.y) // y is from 0 to 1
+        console.log('Delta x: ' + event.deltaX) // deltaX is from 0 to 1
+        console.log('Delta y: ' + event.deltaY) // deltaY is from 0 to 1
+    })
+
+    frost.addEventListener('up', (event) => {
+        console.log('click up')
+        console.log('Twitch user ID: ' + event.id) // ID can be anonymous see https://dev.twitch.tv/docs/extensions#identity
+        console.log('x: ' + event.x) // x is from 0 to 1
+        console.log('y: ' + event.y) // y is from 0 to 1
+    })
+
+</script>
+
+</html>
